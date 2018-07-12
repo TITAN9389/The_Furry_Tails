@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Icon } from 'semantic-ui-react';
+import { Card, Icon, Image } from 'semantic-ui-react';
 
 import './Dashboard.css';
 
@@ -9,7 +9,9 @@ const animals = [
 		name: 'Zeus',
 		type: 'Dog',
 		age: '2y',
+		sex: 'Male',
 		breed: 'Labrador',
+		size: 'Medium',
 		location: 'Abovyan',
 		team: 'Dingo',
 		image: 'https://placeimg.com/640/480/animals'
@@ -19,7 +21,9 @@ const animals = [
 		name: 'Jax',
 		type: 'Dog',
 		age: '3y',
+		sex: 'Male',
 		breed: 'Malamute',
+		size: 'Medium',
 		location: 'Ejmiatsin',
 		team: 'Pawsitive',
 		image: 'https://picsum.photos/640/480?image=659'
@@ -29,7 +33,9 @@ const animals = [
 		name: 'Tom',
 		type: 'Cat',
 		age: '9m',
+		sex: 'Male',
 		breed: 'Mix',
+		size: 'Medium',
 		location: 'Yerevan',
 		team: 'SDOA',
 		image: 'http://placekitten.com/640/480'
@@ -39,7 +45,9 @@ const animals = [
 		name: 'Max',
 		type: 'Dog',
 		age: '1.5y',
+		sex: 'Female',
 		breed: 'Mix',
+		size: 'Medium',
 		location: 'Yerevan',
 		team: 'SDOA',
 		image: 'https://loremflickr.com/640/480/dog'
@@ -49,7 +57,9 @@ const animals = [
 		name: 'Zeus',
 		type: 'Dog',
 		age: '2y',
+		sex: 'Male',
 		breed: 'Labrador',
+		size: 'Medium',
 		location: 'Abovyan',
 		team: 'Dingo',
 		image: 'https://placeimg.com/640/480/animals'
@@ -59,7 +69,9 @@ const animals = [
 		name: 'Jax',
 		type: 'Dog',
 		age: '3y',
+		sex: 'Female',
 		breed: 'Malamute',
+		size: 'Medium',
 		location: 'Ejmiatsin',
 		team: 'Pawsitive',
 		image: 'https://picsum.photos/640/480?image=659'
@@ -69,7 +81,9 @@ const animals = [
 		name: 'Tom',
 		type: 'Cat',
 		age: '9m',
+		sex: 'Male',
 		breed: 'Mix',
+		size: 'Medium',
 		location: 'Yerevan',
 		team: 'SDOA',
 		image: 'http://placekitten.com/640/480'
@@ -79,7 +93,9 @@ const animals = [
 		name: 'Max',
 		type: 'Dog',
 		age: '1.5y',
+		sex: 'Female',
 		breed: 'Mix',
+		size: 'Medium',
 		location: 'Yerevan',
 		team: 'SDOA',
 		image: 'https://loremflickr.com/640/480/dog'
@@ -91,31 +107,71 @@ export default class Dashboard extends Component {
 		return (
 			<Card.Group itemsPerRow={4}>
 				{animals.map(animal => (
-					<Card
-						key={animal.id}
-						image={animal.image}
-						header={animal.name}
-						meta={animal.breed}
-						description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ducimus alias nostrum blanditiis harum doloribus neque maiores voluptates accusantium, molestiae maxime facere dolore repellat cum dolor? Quis commodi odio obcaecati!"
-						extra={
+					<Card key={animal.id}>
+						<Image
+							src={animal.image}
+							rounded
+							label={{
+								as: 'a',
+								color: `${
+									animal.sex === 'Male' ? 'blue' : 'pink'
+								}  `,
+								ribbon: true,
+								content: `${
+									animal.sex === 'Male'
+										? '♂ Male'
+										: '♀ Female'
+								}`
+							}}
+						/>
+						<Card.Content>
+							<Card.Header>{animal.name}</Card.Header>
+							<Card.Meta>{animal.breed}</Card.Meta>
+							<Card.Description>{animal.about}</Card.Description>
+						</Card.Content>
+						<Card.Content extra>
 							<div>
 								<i>
-									<Icon name="users" />
+									<Icon color="black" name="users" />{' '}
 									{animal.team}
-								</i>
+								</i>{' '}
+								-
 								<i>
-									<Icon name="map marker alternate" />
+									<Icon
+										color="red"
+										name="map marker alternate"
+									/>
 									{animal.location}
-								</i>
+								</i>{' '}
+								-
 								<i>
-									<Icon name="birthday" />
+									<Icon color="black" name="birthday" />
 									{animal.age}
+								</i>{' '}
+								-
+								<i>
+									<Icon
+										color="black"
+										name="resize vertical"
+									/>
+									{animal.size}
 								</i>
 							</div>
-						}
-					/>
+						</Card.Content>
+					</Card>
 				))}
 			</Card.Group>
 		);
 	}
 }
+
+// <Segment raised>
+// 	<Label as="a" color="red" ribbon>
+// 		Overview
+// 	</Label>
+// 	<span>Account Details</span>
+// 	<Label as="a" color="blue" ribbon>
+// 		Community
+// 	</Label>
+// 	<span>User Reviews</span>
+// </Segment>;

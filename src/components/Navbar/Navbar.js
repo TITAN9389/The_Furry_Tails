@@ -6,7 +6,7 @@ const colorsA = [
 	{ color: 'red', name: 'Home', link: '' },
 	{ color: 'orange', name: 'Adoption', link: 'adoption' },
 	{ color: 'yellow', name: 'Teams', link: 'teams' },
-	{ color: 'olive', name: 'Save a Soul', link: 'sos' },
+	{ color: 'olive', name: 'Save a Soul', link: 'sas' },
 	{ color: 'green', name: 'About Us', link: 'about' },
 	{ color: 'teal', name: 'Pet Services', link: 'services' }
 ];
