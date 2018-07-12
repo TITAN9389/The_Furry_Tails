@@ -1,3 +1,5 @@
+# The_Furry_Tails
+
 # [SebMaz's ReactJS](https://github.com/reactjs) Boilerplate with [Webpack v4.5](https://github.com/webpack/webpack 'version 4.5')
 
 This is a Minimalist boilerplate uses latest packages and configs. _(this is more **Production** env config, easy to modify to suit **Development** env)_
@@ -12,4 +14,4 @@ This is a Minimalist boilerplate uses latest packages and configs. _(this is mor
 *   ESlinter for React
 *   most popular webpack plugins
 *   share live preview via your device IP
-# The_Furry_Tails
+
