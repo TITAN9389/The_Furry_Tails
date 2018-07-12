@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => (
+export const SaveSoulComponent = () => (
 	<div>
 		<p>SaS = Save a Soul</p>
 	</div>

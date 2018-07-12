@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => (
+export const PetServiceComponent = () => (
 	<div>
 		<p>Pet Services</p>
 	</div>

@@ -8,7 +8,7 @@ import { render } from 'react-dom';
 // import { Provider } from 'react-redux';
 import { injectGlobal } from 'styled-components';
 
-import App from './components/App';
+import { AppComponent } from './main/App';
 
 import axios from 'axios';
 window.axios = axios;
@@ -16,7 +16,7 @@ window.axios = axios;
 // Store Creation
 // const store = createStore();
 
-render(<App />, document.getElementById('app'));
+render(<AppComponent />, document.getElementById('app'));
 
 injectGlobal`
   body {

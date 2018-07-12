@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react';
 
-import './Dashboard.css';
+import './Dashboard.component.css';
 
 const animals = [
 	{
@@ -102,7 +102,7 @@ const animals = [
 	}
 ];
 
-export default class Dashboard extends Component {
+class DashboardComponent extends Component {
 	render() {
 		return (
 			<Card.Group itemsPerRow={4}>
@@ -164,6 +164,8 @@ export default class Dashboard extends Component {
 		);
 	}
 }
+
+export { DashboardComponent };
 
 // <Segment raised>
 // 	<Label as="a" color="red" ribbon>

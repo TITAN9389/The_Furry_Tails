@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => (
+export const TeamsComponent = () => (
 	<div>
 		<ul>
 			<li>Dingo Team</li>

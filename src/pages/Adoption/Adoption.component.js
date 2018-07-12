@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Adoption extends Component {
+class AdoptionComponent extends Component {
 	render() {
 		return (
 			<div>
@@ -9,3 +9,4 @@ export default class Adoption extends Component {
 		);
 	}
 }
+export { AdoptionComponent };

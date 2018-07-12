@@ -11,7 +11,7 @@ const colorsA = [
 	{ color: 'teal', name: 'Pet Services', link: 'services' }
 ];
 
-export default class Navbar extends Component {
+class Navbar extends Component {
 	// state = { activeItem: 'home' };
 	state = { activeA: colorsA[0] };
 
@@ -53,3 +53,4 @@ export default class Navbar extends Component {
 		);
 	}
 }
+export {Navbar};
