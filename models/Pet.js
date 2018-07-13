@@ -37,6 +37,10 @@ const petSchema = new Schema({
 		required: true
 	},
 	adopted: Boolean,
+	tell: {
+		type: Number,
+		required: true
+	},
 	image: String,
 	createdAt: { type: Date, default: Date.now }
 });

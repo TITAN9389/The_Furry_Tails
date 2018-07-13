@@ -9,7 +9,18 @@ module.exports = app => {
 	});
 
 	app.post('/api/pets', async (req, res) => {
-		const { name, type, age, sex, breed, size, location, team } = req.body;
+		const {
+			name,
+			type,
+			age,
+			sex,
+			breed,
+			size,
+			location,
+			team,
+			tell,
+			image
+		} = req.body;
 
 		const pet = new Pet({
 			name,
@@ -19,7 +30,9 @@ module.exports = app => {
 			breed,
 			size,
 			location,
-			team
+			team,
+			tell,
+			image
 		});
 
 		try {

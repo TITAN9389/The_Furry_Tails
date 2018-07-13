@@ -126,7 +126,7 @@ module.exports = {
   plugins: [
     new FriendlyErrorsWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['build']),
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',

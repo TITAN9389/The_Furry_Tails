@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { fetchPets } from '../../actions';
 
 import './Dashboard.component.css';
 
-const animals = [
+const pets = [
 	{
 		id: '1',
 		name: 'Zeus',
@@ -103,66 +105,62 @@ const animals = [
 ];
 
 class DashboardComponent extends Component {
+	componentDidMount() {
+		this.props.fetchPets();
+	}
+
+	renderPets() {
+		return this.props.pets.map(pet => (
+			<Card key={pet.id}>
+				<Image
+					src={pet.image}
+					rounded
+					label={{
+						as: 'a',
+						color: `${pet.sex === 'Male' ? 'blue' : 'pink'}  `,
+						ribbon: true,
+						content: `${pet.sex === 'Male' ? '♂ Male' : '♀ Female'}`
+					}}
+				/>
+				<Card.Content>
+					<Card.Header>{pet.name}</Card.Header>
+					<Card.Meta>{pet.breed}</Card.Meta>
+					<Card.Description>{pet.about}</Card.Description>
+				</Card.Content>
+				<Card.Content extra>
+					<div>
+						<i>
+							<Icon color="black" name="users" /> {pet.team}
+						</i>{' '}
+						-
+						<i>
+							<Icon color="red" name="map marker alternate" />
+							{pet.location}
+						</i>{' '}
+						-
+						<i>
+							<Icon color="black" name="birthday" />
+							{pet.age}
+						</i>{' '}
+						-
+						<i>
+							<Icon color="black" name="resize vertical" />
+							{pet.size}
+						</i>
+					</div>
+				</Card.Content>
+			</Card>
+		));
+	}
+
 	render() {
-		return (
-			<Card.Group itemsPerRow={4}>
-				{animals.map(animal => (
-					<Card key={animal.id}>
-						<Image
-							src={animal.image}
-							rounded
-							label={{
-								as: 'a',
-								color: `${
-									animal.sex === 'Male' ? 'blue' : 'pink'
-								}  `,
-								ribbon: true,
-								content: `${
-									animal.sex === 'Male'
-										? '♂ Male'
-										: '♀ Female'
-								}`
-							}}
-						/>
-						<Card.Content>
-							<Card.Header>{animal.name}</Card.Header>
-							<Card.Meta>{animal.breed}</Card.Meta>
-							<Card.Description>{animal.about}</Card.Description>
-						</Card.Content>
-						<Card.Content extra>
-							<div>
-								<i>
-									<Icon color="black" name="users" />{' '}
-									{animal.team}
-								</i>{' '}
-								-
-								<i>
-									<Icon
-										color="red"
-										name="map marker alternate"
-									/>
-									{animal.location}
-								</i>{' '}
-								-
-								<i>
-									<Icon color="black" name="birthday" />
-									{animal.age}
-								</i>{' '}
-								-
-								<i>
-									<Icon
-										color="black"
-										name="resize vertical"
-									/>
-									{animal.size}
-								</i>
-							</div>
-						</Card.Content>
-					</Card>
-				))}
-			</Card.Group>
-		);
+		return <Card.Group itemsPerRow={4}>{this.renderPets()}</Card.Group>;
 	}
 }
 
+function mapStateToProps({ pets }) {
+	return { pets };
+}
+
+// export connect(mapStateToProps, { fetchPets })(DashboardComponent);
 export { DashboardComponent };

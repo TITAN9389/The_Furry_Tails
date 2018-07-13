@@ -4,6 +4,6 @@ import './Footer.css';
 
 export const Footer = () => (
 	<div styleName="main">
-		<p styleName="content">Footer</p>
+		<p>Footer</p>
 	</div>
 );
