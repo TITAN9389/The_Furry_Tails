@@ -164,10 +164,6 @@ class Dashboard extends Component {
 	}
 }
 
-function mapStateToProps({ pets }) {
-	return { pets };
-}
-
 export const DashboardComponent = connect(
 	mapStateToProps,
 	mapDispatchToProps
