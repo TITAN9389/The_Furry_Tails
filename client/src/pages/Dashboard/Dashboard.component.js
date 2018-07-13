@@ -5,119 +5,125 @@ import { fetchPets } from '../../actions';
 
 import './Dashboard.component.css';
 
-const pets = [
-	{
-		id: '1',
-		name: 'Zeus',
-		type: 'Dog',
-		age: '2y',
-		sex: 'Male',
-		breed: 'Labrador',
-		size: 'Medium',
-		location: 'Abovyan',
-		team: 'Dingo',
-		image: 'https://placeimg.com/640/480/animals'
-	},
-	{
-		id: '2',
-		name: 'Jax',
-		type: 'Dog',
-		age: '3y',
-		sex: 'Male',
-		breed: 'Malamute',
-		size: 'Medium',
-		location: 'Ejmiatsin',
-		team: 'Pawsitive',
-		image: 'https://picsum.photos/640/480?image=659'
-	},
-	{
-		id: '3',
-		name: 'Tom',
-		type: 'Cat',
-		age: '9m',
-		sex: 'Male',
-		breed: 'Mix',
-		size: 'Medium',
-		location: 'Yerevan',
-		team: 'SDOA',
-		image: 'http://placekitten.com/640/480'
-	},
-	{
-		id: '4',
-		name: 'Max',
-		type: 'Dog',
-		age: '1.5y',
-		sex: 'Female',
-		breed: 'Mix',
-		size: 'Medium',
-		location: 'Yerevan',
-		team: 'SDOA',
-		image: 'https://loremflickr.com/640/480/dog'
-	},
-	{
-		id: '5',
-		name: 'Zeus',
-		type: 'Dog',
-		age: '2y',
-		sex: 'Male',
-		breed: 'Labrador',
-		size: 'Medium',
-		location: 'Abovyan',
-		team: 'Dingo',
-		image: 'https://placeimg.com/640/480/animals'
-	},
-	{
-		id: '6',
-		name: 'Jax',
-		type: 'Dog',
-		age: '3y',
-		sex: 'Female',
-		breed: 'Malamute',
-		size: 'Medium',
-		location: 'Ejmiatsin',
-		team: 'Pawsitive',
-		image: 'https://picsum.photos/640/480?image=659'
-	},
-	{
-		id: '7',
-		name: 'Tom',
-		type: 'Cat',
-		age: '9m',
-		sex: 'Male',
-		breed: 'Mix',
-		size: 'Medium',
-		location: 'Yerevan',
-		team: 'SDOA',
-		image: 'http://placekitten.com/640/480'
-	},
-	{
-		id: '8',
-		name: 'Max',
-		type: 'Dog',
-		age: '1.5y',
-		sex: 'Female',
-		breed: 'Mix',
-		size: 'Medium',
-		location: 'Yerevan',
-		team: 'SDOA',
-		image: 'https://loremflickr.com/640/480/dog'
-	}
-];
-
-class DashboardComponent extends Component {
+// const pets = [
+// 	{
+// 		id: '1',
+// 		name: 'Zeus',
+// 		type: 'Dog',
+// 		age: '2y',
+// 		sex: 'Male',
+// 		breed: 'Labrador',
+// 		size: 'Medium',
+// 		location: 'Abovyan',
+// 		team: 'Dingo',
+// 		image: 'https://placeimg.com/640/480/animals'
+// 	},
+// 	{
+// 		id: '2',
+// 		name: 'Jax',
+// 		type: 'Dog',
+// 		age: '3y',
+// 		sex: 'Male',
+// 		breed: 'Malamute',
+// 		size: 'Medium',
+// 		location: 'Ejmiatsin',
+// 		team: 'Pawsitive',
+// 		image: 'https://picsum.photos/640/480?image=659'
+// 	},
+// 	{
+// 		id: '3',
+// 		name: 'Tom',
+// 		type: 'Cat',
+// 		age: '9m',
+// 		sex: 'Male',
+// 		breed: 'Mix',
+// 		size: 'Medium',
+// 		location: 'Yerevan',
+// 		team: 'SDOA',
+// 		image: 'http://placekitten.com/640/480'
+// 	},
+// 	{
+// 		id: '4',
+// 		name: 'Max',
+// 		type: 'Dog',
+// 		age: '1.5y',
+// 		sex: 'Female',
+// 		breed: 'Mix',
+// 		size: 'Medium',
+// 		location: 'Yerevan',
+// 		team: 'SDOA',
+// 		image: 'https://loremflickr.com/640/480/dog'
+// 	},
+// 	{
+// 		id: '5',
+// 		name: 'Zeus',
+// 		type: 'Dog',
+// 		age: '2y',
+// 		sex: 'Male',
+// 		breed: 'Labrador',
+// 		size: 'Medium',
+// 		location: 'Abovyan',
+// 		team: 'Dingo',
+// 		image: 'https://placeimg.com/640/480/animals'
+// 	},
+// 	{
+// 		id: '6',
+// 		name: 'Jax',
+// 		type: 'Dog',
+// 		age: '3y',
+// 		sex: 'Female',
+// 		breed: 'Malamute',
+// 		size: 'Medium',
+// 		location: 'Ejmiatsin',
+// 		team: 'Pawsitive',
+// 		image: 'https://picsum.photos/640/480?image=659'
+// 	},
+// 	{
+// 		id: '7',
+// 		name: 'Tom',
+// 		type: 'Cat',
+// 		age: '9m',
+// 		sex: 'Male',
+// 		breed: 'Mix',
+// 		size: 'Medium',
+// 		location: 'Yerevan',
+// 		team: 'SDOA',
+// 		image: 'http://placekitten.com/640/480'
+// 	},
+// 	{
+// 		id: '8',
+// 		name: 'Max',
+// 		type: 'Dog',
+// 		age: '1.5y',
+// 		sex: 'Female',
+// 		breed: 'Mix',
+// 		size: 'Medium',
+// 		location: 'Yerevan',
+// 		team: 'SDOA',
+// 		image: 'https://loremflickr.com/640/480/dog'
+// 	}
+// ];
+const mapStateToProps = ({ pets }) => {
+	return { pets };
+}
+const mapDispatchToProps = (dispatch) => {
+	return {fetchDashboardPets: () => dispatch(fetchPets())};
+}
+// @(mapStateToProps, mapDispatchToProps)
+class Dashboard extends Component {
 	componentDidMount() {
-		this.props.fetchPets();
+		this.props.fetchDashboardPets();
 	}
 
 	renderPets() {
 		return this.props.pets.map(pet => (
-			<Card key={pet.id}>
+			<Card key={pet._id}>
 				<Image
 					src={pet.image}
 					rounded
 					label={{
 						as: 'a',
-						color: `${pet.sex === 'Male' ? 'blue' : 'pink'}  `,
+						color: `${pet.sex === 'Male' ? 'blue' : 'pink'}`,
 						ribbon: true,
 						content: `${pet.sex === 'Male' ? '♂ Male' : '♀ Female'}`
 					}}
@@ -158,12 +164,4 @@ class DashboardComponent extends Component {
 	}
 }
 
-function mapStateToProps({ pets }) {
-	return { pets };
-}
-
-// export default connect(
-// 	mapStateToProps,
-// 	{ fetchPets }
-// )(DashboardComponent);
-export { DashboardComponent };
+export const DashboardComponent = connect(mapStateToProps, mapDispatchToProps)(Dashboard);
