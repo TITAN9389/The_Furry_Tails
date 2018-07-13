@@ -162,5 +162,8 @@ function mapStateToProps({ pets }) {
 	return { pets };
 }
 
-// export connect(mapStateToProps, { fetchPets })(DashboardComponent);
+// export default connect(
+// 	mapStateToProps,
+// 	{ fetchPets }
+// )(DashboardComponent);
 export { DashboardComponent };
