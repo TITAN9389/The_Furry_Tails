@@ -3,13 +3,15 @@ import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
 import {
-    DashboardComponent,
+    // DashboardComponent,
     TeamsComponent,
     SaveSoulComponent,
     AboutUsComponent,
     PetServiceComponent,
     AdoptionComponent
 } from '../pages';
+
+import DashboardComponent from '../pages/Dashboard/Dashboard.component.js';
 
 import { Navbar } from '../components/Navbar/Navbar';
 import { Footer } from '../components/Footer/Footer';

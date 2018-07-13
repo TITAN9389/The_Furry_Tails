@@ -5,7 +5,7 @@
 			"react-css-modules",
 			{
 				"handleMissingStyleName": "warn",
-				"exclude"	: "node_modules"
+				"exclude": "node_modules"
 			}
 		],
 		"react-hot-loader/babel",
