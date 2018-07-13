@@ -8,8 +8,14 @@
     "url": "git://github.com/TITAN9389/The_Furry_Tails"
   },
   "license": "MIT",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:6060"
+    }
+  },
   "scripts": {
     "serve": "webpack-dev-server --mode development --host 0.0.0.0",
+    "develop": "concurrently \"npm run serve\" \"npm start\"",
     "dev": "webpack --mode development ./src/index.js --output ./dist/script.js",
     "build:stats": "webpack --mode production --progress --profile --json > stats.json",
     "build": "webpack --mode production ./src/index.js --output ./dist/script.js",
@@ -66,6 +72,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-plugin-react-css-modules": "^3.4.2",
+    "concurrently": "^3.5.0",
     "express": "^4.16.3",
     "normalize.css": "^8.0.0",
     "react-redux": "^5.0.7",
