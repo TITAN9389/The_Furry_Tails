@@ -1,0 +1,7 @@
+.flashMessageComponent {
+    width:300px;
+    position: fixed;
+    z-index: 2;
+    top: 100px;
+    right: 100px;
+}

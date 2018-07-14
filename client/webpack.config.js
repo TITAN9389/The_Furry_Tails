@@ -95,6 +95,43 @@ module.exports = {
             ]
           },
           {
+            test: /\.scss$/,
+            exclude: /node_modules\/(?!(sanitize.css|normalize.css)\/).*/,
+            oneOf: [
+              {
+                resourceQuery: /^\?raw$/,
+                use: ['style-loader', 'css-loader']
+              },
+              {
+                use: [
+                  'css-hot-loader',
+                  MiniCssExtractPlugin.loader,
+                  {
+                    loader: 'css-loader',
+                    query: {
+                      // modules: true,
+                      // localIdentName:
+                      //   '[path]___[name]__[local]___[hash:base64:5]',
+                      minimize: true
+                    }
+                  },
+                  {
+                    loader: require.resolve('postcss-loader'),
+                    options: {
+                      sourceMap: true,
+                      ident: 'postcss',
+                      plugins: () => [
+                        require('postcss-flexbugs-fixes'),
+                        require('postcss-cssnext')
+                      ]
+                    }
+                  },
+                  'resolve-url-loader'
+                ]
+              }
+            ]
+          },
+          {
             test: /\.svg/,
             use: {
               loader: 'svg-url-loader'

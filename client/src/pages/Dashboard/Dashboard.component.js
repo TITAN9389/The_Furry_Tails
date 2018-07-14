@@ -5,6 +5,7 @@ import { fetchPets } from '../../actions/pets.actions';
 
 import { HomeCardComponent } from '../../components';
 
+
 import './Dashboard.component.css';
 
 const mapStateToProps = ({ home }) => {
@@ -20,7 +21,12 @@ class Dashboard extends Component {
 	}
 
 	render() {
-		return <Card.Group itemsPerRow={4}>{this.props.pets.map(p => <HomeCardComponent {...p} key={p._id}/> )}</Card.Group>;
+		return (
+		<div>
+			<Card.Group itemsPerRow={4}>
+				{this.props.pets.map(p => <HomeCardComponent {...p} key={p._id}/> )}
+			</Card.Group> 
+		</div>)
 	}
 }
 
