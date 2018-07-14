@@ -2,10 +2,6 @@
 import React from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react';
 
-// Type PropTypes =  {
-// 	_id: string,
-// }
-
 export const HomeCardComponent = (props) => (
     <Card key={props._id}>
 				<Image
