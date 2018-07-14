@@ -11,8 +11,10 @@ import {
     AdoptionComponent
 } from '../pages';
 
-import { Navbar } from '../components/Navbar/Navbar';
-import { Footer } from '../components/Footer/Footer';
+import { 
+    FooterComponent,
+    NavbarComponent 
+} from '../components';
 
 export const history = createHistory();
 
@@ -21,7 +23,7 @@ class MainRouter extends Component {
         return (
             <Router history={history}>
                 <div className="main_container">
-                    <Navbar />
+                    <NavbarComponent />
                     <Switch>
                         <Route path="/" exact component={DashboardComponent} />
                         <Route path="/adoption" component={AdoptionComponent} />
@@ -33,7 +35,7 @@ class MainRouter extends Component {
                             component={PetServiceComponent}
                         />
                     </Switch>
-                    <Footer />
+                    <FooterComponent />
                 </div>
             </Router>
         );

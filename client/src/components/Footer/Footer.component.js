@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './Footer.css';
+import './Footer.component.css';
 
-export const Footer = () => (
+export const FooterComponent = () => (
 	<div styleName="main">
 		<p>Footer</p>
 	</div>
