@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  /* position: relative;
+  min-height: 100vh;*/
+  /*CUSTOM FOR TESTING*/
+  /*   padding: 30px;*/
+  /*background-image: url(./assets/react_npm.png), linear-gradient(to bottom right, #26d0ce, #1a2980);*/
+  /*background-size: cover;*/
+  /*background-attachment: fixed;*/
+  /*background-position: center;*/
+  /*background-blend-mode: overlay;*/
+}
+
+a:visited,
+a:hover,
+a:active,
+a:link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.src-components-Footer-___Footer-component__main___go67N {
+  position: absolute;
+  bottom: 0;
+}
+.src-components-FlashMessage-___FlashMessage-component__flashMessageComponent___1504g {
+  width: 300px;
+  position: fixed;
+  z-index: 2;
+  top: 100px;
+  right: 100px;
+}
+.src-pages-Dashboard-___Dashboard-component__paragraph___2fX3J {
+  color: black;
+}
+
+/*# sourceMappingURL=2.css.map*/
