@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const _ = require('lodash');
 
 const Pet = mongoose.model('Pet');
 
@@ -9,31 +10,20 @@ module.exports = app => {
 	});
 
 	app.post('/api/pets', async (req, res) => {
-		const {
-			name,
-			type,
-			age,
-			sex,
-			breed,
-			size,
-			location,
-			team,
-			tell,
-			image
-		} = req.body;
+		const body = _.pick(req.body, [
+			'name',
+			'type',
+			'age',
+			'sex',
+			'breed',
+			'size',
+			'location',
+			'team',
+			'tell',
+			'image'
+		]);
 
-		const pet = new Pet({
-			name,
-			type,
-			age,
-			sex,
-			breed,
-			size,
-			location,
-			team,
-			tell,
-			image
-		});
+		const pet = new Pet(body);
 
 		try {
 			await pet.save();
