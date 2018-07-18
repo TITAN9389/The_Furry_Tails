@@ -1,42 +1,69 @@
 const mongoose = require('mongoose');
+const _ = require('lodash');
 
 const Pet = mongoose.model('Pet');
 
 module.exports = app => {
-	app.get('/api/pets', async (req, res) => {
-		const pets = await Pet.find({});
-		res.send(pets);
-	});
-
 	app.post('/api/pets', async (req, res) => {
-		const {
-			name,
-			type,
-			age,
-			sex,
-			breed,
-			size,
-			location,
-			team,
-			tell,
-			image
-		} = req.body;
+		const body = _.pick(req.body, [
+			'name',
+			'type',
+			'age',
+			'sex',
+			'breed',
+			'size',
+			'location',
+			'team',
+			'sponsored',
+			'tell',
+			'image'
+		]);
 
-		const pet = new Pet({
-			name,
-			type,
-			age,
-			sex,
-			breed,
-			size,
-			location,
-			team,
-			tell,
-			image
-		});
+		const pet = new Pet(body);
 
 		try {
 			await pet.save();
+			res.send(pet);
+		} catch (err) {
+			res.send(400, err);
+		}
+	});
+
+	app.get('/api/pets', async (req, res) => {
+		const { skipCount, takeCount, sortBy, orderBy } = req.query;
+		try {
+			const pets = await Pet.find({})
+				.skip(skipCount > 0 ? (skipCount - 1) * takeCount : 0)
+				.limit(!takeCount ? 4 : Number(takeCount))
+				.sort(
+					!sortBy ? { createdAt: -1 } : { [sortBy]: Number(orderBy) }
+				);
+
+			res.send(pets);
+		} catch (err) {
+			res.send(400, err);
+		}
+	});
+
+	app.put('/api/pets/:id', async (req, res) => {
+		const id = req.params.id;
+		const body = _.pick(req.body, ['adopted', 'sponsored']);
+		try {
+			const pet = await Pet.findByIdAndUpdate(
+				id,
+				{ $set: body },
+				{ new: true }
+			);
+			res.send({ pet });
+		} catch (err) {
+			res.send(404, err);
+		}
+	});
+
+	app.delete('/api/pets/:id', async (req, res) => {
+		const id = req.params.id;
+		try {
+			const pet = await Pet.findByIdAndRemove(id);
 			res.send(pet);
 		} catch (err) {
 			res.send(400, err);

@@ -37,6 +37,7 @@ const petSchema = new Schema({
 		required: true
 	},
 	adopted: Boolean,
+	sponsored: Boolean,
 	tell: {
 		type: Number,
 		required: true
