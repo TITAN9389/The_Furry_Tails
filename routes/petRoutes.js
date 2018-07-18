@@ -14,6 +14,7 @@ module.exports = app => {
 			'size',
 			'location',
 			'team',
+			'sponsored',
 			'tell',
 			'image'
 		]);
@@ -44,14 +45,28 @@ module.exports = app => {
 		}
 	});
 
-	// app.put('/api/pets/:id', async (req, res) => {
-	// 	const body = _.pick(req.body, ['adopted', 'sponsored']);
-	// 	const updated = Pet.updateById(id);
-	// 	try {
-	// 		await updated.save();
-	// 		res.send(updated);
-	// 	} catch (err) {
-	// 		res.send(400, err);
-	// 	}
-	// });
+	app.put('/api/pets/:id', async (req, res) => {
+		const id = req.params.id;
+		const body = _.pick(req.body, ['adopted', 'sponsored']);
+		try {
+			const pet = await Pet.findByIdAndUpdate(
+				id,
+				{ $set: body },
+				{ new: true }
+			);
+			res.send({ pet });
+		} catch (err) {
+			res.send(404, err);
+		}
+	});
+
+	app.delete('/api/pets/:id', async (req, res) => {
+		const id = req.params.id;
+		try {
+			const pet = await Pet.findByIdAndRemove(id);
+			res.send(pet);
+		} catch (err) {
+			res.send(400, err);
+		}
+	});
 };
