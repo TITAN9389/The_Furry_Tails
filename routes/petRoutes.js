@@ -4,6 +4,7 @@ const _ = require('lodash');
 const Pet = mongoose.model('Pet');
 
 module.exports = app => {
+	// Adding New Pet with Required Fields
 	app.post('/api/pets', async (req, res) => {
 		const body = _.pick(req.body, [
 			'name',
@@ -29,6 +30,7 @@ module.exports = app => {
 		}
 	});
 
+	// Getting pets based on Query parameters
 	app.get('/api/pets', async (req, res) => {
 		const { skipCount, takeCount, sortBy, orderBy } = req.query;
 		try {
@@ -45,6 +47,7 @@ module.exports = app => {
 		}
 	});
 
+	// Updating Pet Data Only "Adopted , Sponsored" True : False
 	app.put('/api/pets/:id', async (req, res) => {
 		const id = req.params.id;
 		const body = _.pick(req.body, ['adopted', 'sponsored']);
@@ -60,6 +63,7 @@ module.exports = app => {
 		}
 	});
 
+	// Deleting Adopted Pets from DB or View
 	app.delete('/api/pets/:id', async (req, res) => {
 		const id = req.params.id;
 		try {
