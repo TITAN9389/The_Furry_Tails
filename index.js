@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
-const cors = require('cors');
 
 require('./models/Pet');
 require('./models/User');
@@ -15,9 +14,9 @@ mongoose.connect(
 );
 
 const app = express();
+const cors = require('cors');
 
 app.use(cors());
-
 app.use(bodyParser.json());
 app.use(
 	cookieSession({
