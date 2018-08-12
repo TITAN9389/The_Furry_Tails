@@ -48,7 +48,7 @@ module.exports = app => {
 	});
 
 	// Updating Pet Data Only "Adopted , Sponsored" True : False
-	app.put('/api/pets/:id', async (req, res) => {
+	app.patch('/api/pets/:id', async (req, res) => {
 		const id = req.params.id;
 		const body = _.pick(req.body, ['adopted', 'sponsored']);
 		try {

@@ -16,8 +16,7 @@ mongoose.connect(
 const app = express();
 const cors = require('cors');
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(cors(), bodyParser.json());
 app.use(
 	cookieSession({
 		maxAge: 30 * 24 * 60 * 60 * 1000,
